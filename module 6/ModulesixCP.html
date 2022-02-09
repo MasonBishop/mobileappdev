@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="themes/Coursecp.min.css" />
+    <title>My list of favorite video games.</title>
+
+
+  </head>
+  <body>
+    <div data-role="header">
+    <h1> This is a list of my favorite video games. </h1>
+    <a href="#myPanel" class="ui-btn ui-btn-inline">Panel</a>
+    <p> This website is a list of my favorite video games that I have played and will be expanded in the future as I continue to play more! I will be adding additional functions in the near future for this
+    website that can help to navigate it and maybe even add a forum for people to discuss their favorite games and even comments under the games on my list from users. These new additions will be added soon
+  and I hope everyone here has a good time!</p>
+
+    <p> List of games will begin below and be expanded on as time goes by. Keep in mind the site is a work in progress. You can also click the gmaes name to bring you to the official sites for them to support the games if you want.</p>
+    <div data-role="panel" id="myPanel">
+<li><a href="newCppg.html">Newly added page!</a></li>
+    </div>
+<div data-role="content">
+    <ul data-role="listview" data-filter="true">
+      <li><a href="https://fallout.bethesda.net/en/">Fallout New Vegas</a></li>
+      <li><a href="https://rimworldgame.com/">Rimworld</a></li>
+    <li><a href="https://www.ea.com/games/mass-effect">Mass effect</a></li>
+      <li><a href="https://www.cyberpunk.net/us/en/">Cyberpunk</a></li>
+      <li><a href="https://www.minecraft.net/en-us">Minecraft</a></li>
+      <li><a href="https://www.halowaypoint.com/">Halo 3</a></li>
+      </ul>
+     <p> Click here for new page </p>
+     <div data-role="page" id="grid" data-theme="a" data-add-back-btn="true">
+
+<div data-role="header" data-theme="a" data-add-back-btn="true">
+
+<h1>Grid</h1>
+<li><a href="https://rimworldgame.com/">Rimworld</a></li>
+<p> vs </p>
+<li><a href="https://fallout.bethesda.net/en/">Fallout New Vegas</a></li>
+</div>
+
+<div data-role="content">
+
+<div class="ui-grid-a">
+
+
+
+</div>
+
+</div>
+
+
+
+      <div data-role="footer>"<p>Copyright</p>
+  </body>
+</html>
+<script>
+(function() {
+
+	var rasm = document.querySelector('.localstorage');
+
+	function supportsLocalStorage() {
+		return typeof(Storage)!== 'undefined';
+	}
+
+	if (!supportsLocalStorage()) {
+		rasm.value = 'Your browser does not support localStorage.';
+	} else {
+		try {
+			setInterval(function() {
+				localStorage.setItem('autosave', rasm.value);
+			}, 1000);
+		} catch (e) {
+			if (e == QUOTA_EXCEEDED_ERR) {
+				alert('Quota exceeded!');
+			}
+		}
+		if (localStorage.getItem('autosave')) {
+			rasm.value = localStorage.getItem('autosave');
+		}
+		document.querySelector('.clear').onclick = function() {
+			rasm.value = '';
+			localStorage.removeItem('autosave');
+		};
+		document.querySelector('.empty').onclick = function() {
+			rasm.value = '';
+			localStorage.clear();
+		};
+	}
+
+})();
+</script>
